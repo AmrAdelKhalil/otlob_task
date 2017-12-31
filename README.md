@@ -1,13 +1,13 @@
 # Instructions
 Here are the steps to make this project works:
 
-1- run `git clone https://github.com/AmrAdelKhalil/otlob_task.git`
-2- run `bundle install`
-3- run `rake db:setup` then `rake db:migration` then `rake db:seed`
-4- run `rails server` to run the servers
+* run `git clone https://github.com/AmrAdelKhalil/otlob_task.git`
+* run `bundle install`
+* run `rake db:setup` then `rake db:migration` then `rake db:seed`
+* run `rails server` to run the servers
 
 
-#Available APIs
+**Available APIs**
 
   Method   URI Pattern                 
 1-  GET    /estates/paginate            
@@ -17,7 +17,7 @@ Here are the steps to make this project works:
 5-  PUT    /estates/:id     
 6-  DELETE /estates/:id   
 
-#Info
+**Info**
 
 * Ruby version: v2.4.2
 
