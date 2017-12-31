@@ -30,7 +30,7 @@ Here are the steps to make this project works:
   page: 1,
   per_page: 5 #default is 15
 }`
-*Search
+* Search
 `{
     {
       type: "",
