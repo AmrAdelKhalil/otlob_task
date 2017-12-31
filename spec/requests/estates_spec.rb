@@ -105,4 +105,32 @@ RSpec.describe "Estate APIs", :type => :request do
 
     end
   end
+
+  context 'Errors' do
+        let(:valid_data){
+          {
+            estate: {
+              street: "51 OMAHA CT", city: "SACRAMENTO", zip: "90823", state: "CA", beds: 3, baths: 1, sq_ft: 1167.0, estate_type: "Residential", sale_date: "2008-05-21", price: 68212.0, latitude: 38.478902, longitude: -121.431028
+            }
+          }
+        }
+
+        let(:invalid_data){
+          {
+            estate: {
+              street: "51 OMAHA CT", city: "SACRAMENTO", zip: "90823", state: "CA", beds: 3, baths: 1, sq_ft: "1167.0", estate_type: "Residential", sale_date: "2008-05-21", price: "68212.0", latitude: "invalid", longitude: -121.431028
+            }
+          }
+        }
+        it 'POST /estates' do
+          post '/estates', params: invalid_data
+          expect(response).to have_http_status(:unprocessable_entity)
+        end
+
+        it 'POST /estates/:id' do
+          estate = Estate.create!(valid_data[:estate])
+          put "/estates/#{estate.id}", params: invalid_data
+          expect(response).to have_http_status(:unprocessable_entity)
+        end
+  end
 end
