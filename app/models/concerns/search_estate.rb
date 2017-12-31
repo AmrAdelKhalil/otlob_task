@@ -24,8 +24,8 @@ module SearchEstate
   end
 
   def get_low_and_high(range)
-    low = range["low"]
-    high = range["high"]
+    low = range["low"].to_i
+    high = range["high"].to_i
     low = 0 if low.nil? || (!low.is_a?(Float) && !low.is_a?(Integer))
     high = 1000 if high.nil? || (!high.is_a?(Float) && !high.is_a?(Integer))
     [low,high]
