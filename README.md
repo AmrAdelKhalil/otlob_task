@@ -1,24 +1,28 @@
-# README
+# Instructions
+Here are the steps to make this project works:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1- run `git clone https://github.com/AmrAdelKhalil/otlob_task.git`
+2- run `bundle install`
+3- run `rake db:setup` then `rake db:migration` then `rake db:seed`
+4- run `rails server` to run the servers
 
-Things you may want to cover:
 
-* Ruby version
+#Available APIs
 
-* System dependencies
+  Method   URI Pattern                 
+1-  GET    /estates/paginate            
+2-  POST   /estates/search                 
+3-  POST   /estates         
+4-  GET    /estates/:id           
+5-  PUT    /estates/:id     
+6-  DELETE /estates/:id   
 
-* Configuration
+#Info
 
-* Database creation
+* Ruby version: v2.4.2
 
-* Database initialization
+* System dependencies: will_paginate gem, rspec
 
-* How to run the test suite
+* Database creation: postgress
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* How to run the test suite: `specs spec`
