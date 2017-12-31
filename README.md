@@ -10,12 +10,12 @@ Here are the steps to make this project works:
 **Available APIs**
 
   Method   URI Pattern                 
-1-  GET    /estates/paginate            
-2-  POST   /estates/search                 
-3-  POST   /estates         
-4-  GET    /estates/:id           
-5-  PUT    /estates/:id     
-6-  DELETE /estates/:id   
+*  GET    `/estates/paginate`           
+*  POST   `/estates/search `                
+*  POST   `/estates`         
+*  GET    `/estates/:id`           
+*  PUT    `/estates/:id`     
+*  DELETE `/estates/:id`   
 
 **Info**
 
