@@ -73,9 +73,36 @@ RSpec.describe "Estate APIs", :type => :request do
         expect(resp[1]["id"]).to eq(estate4.id)
       end
 
-      it 'POST /estates/search' do
-        
+      context 'POST /estates/search' do
+        let(:search_recrods_data){
+          {
+            estate: {
+              street: "51 OMAHA CT", city: "SACRAMENTO", zip: "90823", state: "CA", beds: 3, baths: 1, sq_ft: 1167.0, estate_type: "Residential", sale_date: "2008-05-21", price: 68212.0, latitude: 38.478902, longitude: -121.431028
+            }
+          }
+        }
+        it 'by Type' do
+          estate = Estate.create!(search_recrods_data[:estate])
+          post '/estates/search', params: {"type": "es"}
+          expect(response).to be_success
+          expect(JSON.parse(response.body).length).to be(1)
+        end
+
+        it 'by Price' do
+          estate = Estate.create!(search_recrods_data[:estate])
+          post '/estates/search', params: {"price": {"low": 300,"high":100000}}
+          expect(response).to be_success
+          expect(JSON.parse(response.body).length).to be(1)
+        end
+
+        it 'by Sq_ft' do
+          estate = Estate.create!(search_recrods_data[:estate])
+          post '/estates/search', params: {"sq_ft": {"low": 1000, "high": 2000}}
+          expect(response).to be_success
+          expect(JSON.parse(response.body).length).to be(1)
+        end
       end
+
     end
   end
 end
